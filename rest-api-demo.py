@@ -1,4 +1,5 @@
 import requests
+import json
 
 NYT_ARTICLE_SEARCH_API_BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
 NYT_ARTICLE_SEARCH_API_KEY = 'zBUKdYxLkvd8g0A8cZpgUxz1Z8bNapkj'
@@ -11,4 +12,7 @@ response = requests.get(
      }
 )
 
-print(response)
+json_data = response.json()
+pretty_json_data = json.dumps(json_data, indent=4, sort_keys=True)
+
+print(pretty_json_data)
