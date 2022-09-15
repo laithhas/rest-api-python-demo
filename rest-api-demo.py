@@ -14,5 +14,9 @@ response = requests.get(
 
 json_data = response.json()
 pretty_json_data = json.dumps(json_data, indent=4, sort_keys=True)
-
 print(pretty_json_data)
+
+article_objects = json_data["response"]["docs"]
+
+for article in article_objects:
+    print(article["headline"]["main"])
